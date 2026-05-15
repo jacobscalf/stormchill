@@ -1,0 +1,55 @@
+		body {
+			font-family: Arial;
+			background: #071822;
+			color: #f4fbff;
+			padding: 20px;
+		}
+
+		#alert {
+			padding: 10px;
+			margin-bottom: 10px;
+			border-radius: 8px;
+			font-weight: bold;
+		}
+
+		/* No active alerts */
+		.alert-none{
+			background: #1f7a3f;
+		}
+
+		/* Smaller or less urgent alerts */
+		.alert-yellow {
+			background: #c28b00;
+		}
+
+		/* Severe weather alerts */
+		.alert-orange {
+			background: #c65d00;
+		}
+
+		/* Dangerous, immediate threats */
+		.alert-red {
+			background: #b91c1c;
+		}
+
+		/* Winter weather */
+		.alert-purple {
+			background: #7651b3;
+		}
+
+		#explanation {
+			margin-top: 10px;
+			background: #173958;
+			padding: 10px;
+			border-radius: 8px;
+			border: 1px solid #2f6f8c;
+		}
+
+		* {
+			box-sizing: border-box;
+		}
+
+		.content {
+			width: 100%;
+			max-width: 800px;
+		}
