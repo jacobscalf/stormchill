@@ -10,10 +10,35 @@
 		}
 
 		#alert {
-			background: #b91c1c;
 			padding: 10px;
 			margin-bottom: 10px;
 			border-radius: 8px;
+			font-weight: bold;
+		}
+
+		/* No active alerts */
+		.alert-none{
+			background: #1f7a3f;
+		}
+
+		/* Smaller or less urgent alerts */
+		.alert-yellow {
+			background: #c28b00;
+		}
+
+		/* Severe weather alerts */
+		.alert-orange {
+			background: #c65d00;
+		}
+
+		/* Dangerous, immediate threats */
+		.alert-red {
+			background: #b91c1c;
+		}
+
+		/* Winter weather */
+		.alert-purple {
+			background: #7651b3;
 		}
 
 		#explanation {
@@ -118,26 +143,70 @@
 			
 		}
 
+		function getAlertClass(alert) {
+			const lowerAlert = alert.toLowerCase();
+
+			if (
+				lowerAlert.includes("tornado warning") ||
+				lowerAlert.includes("hurricane warning")
+			) {
+				return "alert-red";
+			}
+
+			if (
+				lowerAlert.includes("severe thunderstorm") ||
+				lowerAlert.includes("tropical storm warning")
+			) {
+				return "alert-orange";
+			}
+
+			if (
+				lowerAlert.includes("flash flood") ||
+				lowerAlert.includes("air quality") ||
+				lowerAlert.includes("flood advisory")
+			) {
+				return "alert-yellow";
+			}
+
+			if (
+				lowerAlert.includes("snow") ||
+				lowerAlert.includes("ice") ||
+				lowerAlert.includes("winter storm") ||
+				lowerAlert.includes("blizzard")
+			) {
+				return "alert-purple";
+			}
+
+			return "alert-yellow";
+		}
+
 		async function getAlerts(lat, lon){
 			const response = await fetch(`https://api.weather.gov/alerts/active?point=${lat},${lon}`);
 			const data = await response.json();
 
 			if (data.features.length > 0){
-				const alertName = data.features[0].properties.event;
+				const alert = data.features[0].properties.event;
 				const alertBox = document.getElementById("alert");
 
-				alertBox.innerHTML = "";
-				const strong = document.createElement("strong");
-				strong.innerText = alertName;
+				alertBox.innerText = `${alert} - ${explainAlert(alert)}`;
+				alertBox.className = getAlertClass(alert);
 
-				alertBox.appendChild(strong);
-				alertBox.append(` - ${explainAlert(alertName)}`);
+				//alertBox.innerHTML = "";
+				//const strong = document.createElement("strong");
+				//strong.innerText = alertName;
+
+				//alertBox.appendChild(strong);
+				//alertBox.append(` - ${explainAlert(alertName)}`);
 
 				//document.getElementById("alert").innerHTML = `<strong>${alert}</strong> - ${explainAlert(alert)}`;
 
 				//document.getElementById("explanation").innerText = explainAlert(alert);
 			} else {
-				document.getElementById("alert").innerText = "No active alerts";
+				//document.getElementById("alert").innerText = "No active alerts";
+				const alertBox = document.getElementById("alert");
+
+				alertBox.innerText = "No active alerts";
+				alertBox.className = "alert-none";
 			}
 		}
 
