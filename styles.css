@@ -63,11 +63,12 @@
 
 			background: linear-gradient(
 				90deg,
-				#f8feff 0%,
-				#bff6ff 20%,
-				#72deee 55%,
-				#4fc7dc 78%,
-				#ffd76a 100%
+				#58d4e8 0%,
+				#86e7f5 20%,
+				#f4feff 45%,
+				#dffcff 55%,
+				#7be0ef 75%,
+				#45bfd5 100%
 			);
 			-webkit-background-clip: text;
 			background-clip: text;
