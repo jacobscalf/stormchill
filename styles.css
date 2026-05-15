@@ -81,3 +81,20 @@
 				0 0 18px rgba(255, 224, 138, 0.25),
 				0 0 28px rgba(255, 210, 90, 0.18);
 		}
+
+		.storm-logo {
+			width: 320px;
+			max-width: 100%;
+			height: auto;
+
+			-webkit-mask-image: radial-gradient(
+				ellipse at center,
+				black 55%,
+				transparent 100%
+			);
+			mask-image: radial-gradient(
+				ellipse at center,
+				black 55%,
+				transparent 100%
+			);
+		}
