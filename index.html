@@ -49,6 +49,15 @@
 			border: 1px solid #2f6f8c;
 		}
 
+		* {
+			box-sizing: border-box;
+		}
+
+		.content {
+			width: 100%;
+			max-width: 800px;
+		}
+
 
 	</style>
 
@@ -58,14 +67,20 @@
 </head>
 <body>
 
-	<h1>StormChill</h1>
+	<div class="content">
 
-	<h2 id="temp">Loading temperature...</h2>
+		<h1>StormChill</h1>
 
-	<h3 id="location">Getting location...</h3>
+		<h2 id="temp">Loading temperature...</h2>
 
-	<div id="alert"></div>
-	<div id="explanation"></div>
+		<h3 id="location">Getting location...</h3>
+
+		<div id="alert"></div>
+		<div id="explanation"></div>
+		
+	</div>
+
+	
 
 	<script>
 		function getLocation() {
