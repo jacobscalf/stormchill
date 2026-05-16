@@ -158,18 +158,8 @@
 				alertBox.innerText = `${alert} - ${explainAlert(alert)}`;
 				alertBox.className = getAlertClass(alert);
 
-				//alertBox.innerHTML = "";
-				//const strong = document.createElement("strong");
-				//strong.innerText = alertName;
-
-				//alertBox.appendChild(strong);
-				//alertBox.append(` - ${explainAlert(alertName)}`);
-
-				//document.getElementById("alert").innerHTML = `<strong>${alert}</strong> - ${explainAlert(alert)}`;
-
-				//document.getElementById("explanation").innerText = explainAlert(alert);
 			} else {
-				//document.getElementById("alert").innerText = "No active alerts";
+				
 				const alertBox = document.getElementById("alert");
 
 				alertBox.innerText = "No active alerts";
@@ -207,7 +197,7 @@
 			}else if (forecast.includes("Thunderstorm")) {
 				conditionMessage = "Warm, rising air is creating storm clouds that can produce lightning, heavy rain, and strong winds.";
 			} else {
-				conditionMessage = "weather conditions are stable right now."
+				conditionMessage = "Weather conditions are stable right now."
 			}
 
 			// Temperature-based add-on
